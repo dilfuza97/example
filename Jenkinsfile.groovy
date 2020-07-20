@@ -32,7 +32,7 @@ node('master') {
     stage('Docker push') {
 
            dir("${WORKSPACE}") {
-             sh "docker tag http-server:latest 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
+             sh "docker tag flask-server:latest 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
       }
            dir("${WORKSPACE}") {
              sh "docker push 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
