@@ -1,6 +1,6 @@
-resource "kubernetes_service" "artemis" {
+resource "kubernetes_service" "flask-app" {
   metadata {
-    name = "artemis"
+    name = "flask-app"
 
     labels {
       run = "artemis"
@@ -22,31 +22,31 @@ resource "kubernetes_service" "artemis" {
   }
 }
 
-resource "kubernetes_deployment" "artemis" {
+resource "kubernetes_deployment" "flask-app" {
   metadata {
-    name = "artemis"
+    name = "flask-app"
   }
 
   spec {
-    replicas = 1
+    replicas = 3
 
     selector {
       match_labels {
-        run = "artemis"
+        run = "flask-app"
       }
     }
 
     template {
       metadata {
         labels {
-          run = "artemis"
+          run = "flask-app"
         }
       }
 
       spec {
         container {
-          name  = "artemis"
-          image = "50364747/artemis:v1"
+          name  = "flask-app"
+          image = "ECR repository and image name"
 
           port {
             container_port = 80
