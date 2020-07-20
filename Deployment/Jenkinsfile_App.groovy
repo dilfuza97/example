@@ -20,7 +20,7 @@ node('master') {
 
    stage('Terraform Apply/Plan') {
          if (params.Terraform_apply) {
-           dir("${WORKSPACE}/???") {
+           dir("${WORKSPACE}/example/Deployment") {
              sh "terraform apply --auto-approve /???"
            }
         }
@@ -28,8 +28,8 @@ node('master') {
 
     stage('Terraform Destoy') {
          if (params.Terraform_destroy) {
-          dir("${WORKSPACE}/???") {
-             sh "terraform destroy --auto-approve /???"
+          dir("${WORKSPACE}/example/Deployment") {
+             sh "terraform destroy --auto-approve /example/Deployment"
 
          }
        }
