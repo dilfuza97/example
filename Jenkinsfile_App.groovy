@@ -3,7 +3,7 @@ node('master') {
   properties([parameters([booleanParam(defaultValue: true, description: 'This will do terraform apply', name: 'Terraform_apply'), booleanParam(defaultValue: false, description: 'This will do terraform destroy', name: 'Terraform_destroy')])])
 
     stage('Clone repo') {
-    git 'https://github.com/dilfuza97/Kubernetes_jenkins.git'
+    git 'https://github.com/dilfuza97/example.git'
   }
 
     stage("Download Terraform"){
