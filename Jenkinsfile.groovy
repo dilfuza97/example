@@ -3,7 +3,7 @@ node('master') {
     // some block
 
   stage('Clone repo') {
-    git credentialsId: 'github', url: 'https://github.com/dilfuza97/Docker_Jenkins_py.git'
+    git credentialsId: 'github', url: 'https://github.com/dilfuza97/example.git'
   }
 
    stage('Check awscli') {
@@ -40,7 +40,7 @@ node('master') {
   }
     stage('Docker run') {
            dir("${WORKSPACE}") {
-             sh "docker run -dti -p 85:8080 385571246247.dkr.ecr.us-east-1.amazonaws.com/task"
+             sh "docker run -dti -p 85:5000 385571246247.dkr.ecr.us-east-1.amazonaws.com/task"
            }
          }
       }
