@@ -7,8 +7,8 @@ node('master') {
   }
 
     stage("Download Terraform"){
-       sh "wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip"
-        sh "unzip -o terraform_0.12.7_linux_amd64.zip"
+       sh "wget https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip"
+        sh "unzip -o terraform_0.12.28_linux_amd64.zip"
         sh "sudo mv terraform /bin"
         sh "terraform version"
 
@@ -20,7 +20,7 @@ node('master') {
 
    stage('Terraform Apply/Plan') {
          if (params.Terraform_apply) {
-           dir("${WORKSPACE}/???") {
+           dir("${WORKSPACE}/example/Deployment") {
              sh "terraform apply --auto-approve /???"
            }
         }
@@ -28,8 +28,8 @@ node('master') {
 
     stage('Terraform Destoy') {
          if (params.Terraform_destroy) {
-          dir("${WORKSPACE}/???") {
-             sh "terraform destroy --auto-approve /???"
+          dir("${WORKSPACE}/example/Deployment") {
+             sh "terraform destroy --auto-approve /example/Deployment"
 
          }
        }
